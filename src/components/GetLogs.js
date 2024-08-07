@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { app } from "../firebaseConfig";
 import { getDatabase, ref, get} from "firebase/database";
+import { useNavigate } from "react-router-dom";
 
 export const GetLogs = () => {
+
+    const navigate = useNavigate();
 
     const [logsArray, setLogsArray] = useState([]);
 
@@ -39,6 +42,7 @@ export const GetLogs = () => {
                 ))}
             
         </table>
+        <button onClick={() => navigate("/")}>Click to view data</button>
     </div>
   )
 }
